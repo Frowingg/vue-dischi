@@ -23,7 +23,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import './assets/scss/style.scss';
 *{
   padding: 0;
   margin: 0;
