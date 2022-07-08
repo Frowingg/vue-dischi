@@ -1,25 +1,25 @@
 <template>
   <div id="app">
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <header>
       <img src="./assets/logo.png" alt="">
     </header>
 
     <main>
-
+      <CdListComponent />
     </main>
 
   </div>
 </template>
 
 <script>
+import CdListComponent from './components/CdListComponent.vue';
 // import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
-    // HelloWorld
-  }
+    CdListComponent
+}
 }
 </script>
 
