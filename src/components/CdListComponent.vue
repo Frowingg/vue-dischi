@@ -1,12 +1,9 @@
 <template>
     <div class="container">
-        <div class="row">
-            <div class="col-3 col-md-6 col-lg-8" v-for="cd in CdList" :key="cd.id">
+        <div class="row" v-for="(cd, index) in CdList" :key="index">
 
-            </div>
-            <div class="col-3 col-md-6 col-lg-8">
+            <CdComponent :info="cd" />
 
-            </div>
         </div>
     </div>
 </template>
@@ -30,6 +27,7 @@ export default {
         getCd() {
             axios.get(this.url).then((result) => {
                 this.CdList = result.data.response
+                console.log(this.CdList)
             })
             .catch((err) =>
                 console.log('error', err)
