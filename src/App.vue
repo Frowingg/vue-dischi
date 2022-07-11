@@ -2,6 +2,9 @@
   <div id="app">
     <header>
       <img src="./assets/logo.png" alt="">
+
+      <selectGenre />
+
     </header>
 
     <main>
@@ -13,11 +16,14 @@
 
 <script>
 import CdListComponent from './components/CdListComponent.vue';
+import selectGenre from './components/selectGenre.vue';
+
 
 export default {
   name: 'App',
   components: {
-    CdListComponent
+    CdListComponent,
+    selectGenre
 }
 }
 </script>
@@ -36,6 +42,8 @@ header{
   background-color: #2e3a46;
   padding: 10px 15px;
   height: 40px;
+  display: flex;
+  justify-content: space-between;
 }
 header img{
   width: 20px;

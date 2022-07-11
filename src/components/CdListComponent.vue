@@ -1,26 +1,31 @@
 <template>
     <div class="container">
-        <div class="row row-cols-5">
+        <div v-if="isLoaded" class="row row-cols-5">
         
-            <CdComponent :info="cd" v-for="(cd, index) in CdList" :key="index"/>
+            <CdComponent :info="cd" v-for="(cd, index) in CdList" :key="index" />
 
+            
         </div>
+        <loaderComponent v-else />
     </div>
 </template>
 
 <script>
 import axios from 'axios';
 import CdComponent from './CdComponent.vue';
+import loaderComponent from './loaderComponent.vue';
 
 export default {
     name: 'CdListComponent',
     components: {
-        CdComponent
+        CdComponent,
+        loaderComponent
     },
     data() {
         return {
             url: 'https://flynn.boolean.careers/exercises/api/array/music',
             CdList: [],
+            isLoaded: false,
         }
     },
     created() {
@@ -29,8 +34,9 @@ export default {
     methods:{
         getCd() {
             axios.get(this.url).then((result) => {
-                this.CdList = result.data.response
-                console.log(this.CdList)
+                this.CdList = result.data.response;
+                this.isLoaded = true;
+                console.log(this.CdList);
             })
             .catch((err) =>
                 console.log('error', err)
@@ -45,4 +51,5 @@ export default {
 .container{
     width: 60%;
 }
+
 </style>
