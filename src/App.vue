@@ -35,14 +35,14 @@ export default {
 header{
   background-color: #2e3a46;
   padding: 10px 15px;
-  height: 60px;
+  height: 40px;
 }
 header img{
-  width: 40px;
-  height: 40px;
+  width: 20px;
+  height: 20px;
 }
 main{
   background-color: #1e2d3b;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 40px);
 }
 </style>

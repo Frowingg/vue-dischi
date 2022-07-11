@@ -1,8 +1,8 @@
 <template>
     <div class="container">
-        <div class="row" v-for="(cd, index) in CdList" :key="index">
-
-            <CdComponent :info="cd" />
+        <div class="row row-cols-5">
+        
+            <CdComponent :info="cd" v-for="(cd, index) in CdList" :key="index"/>
 
         </div>
     </div>
@@ -10,10 +10,13 @@
 
 <script>
 import axios from 'axios';
+import CdComponent from './CdComponent.vue';
 
 export default {
     name: 'CdListComponent',
-
+    components: {
+        CdComponent
+    },
     data() {
         return {
             url: 'https://flynn.boolean.careers/exercises/api/array/music',
@@ -39,5 +42,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.container{
+    width: 60%;
+}
 </style>
